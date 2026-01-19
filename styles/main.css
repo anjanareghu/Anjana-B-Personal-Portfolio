@@ -3972,3 +3972,191 @@ body.light-mode .journey-card:hover .timeline-content {
     0 20px 60px rgba(99, 102, 241, 0.15),
     0 0 40px rgba(99, 102, 241, 0.08);
 }
+
+/* ===== About Section Globe Animation ===== */
+.about-globe {
+  width: 100%;
+  aspect-ratio: 4/5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(135deg, var(--color-bg-tertiary) 0%, var(--color-bg-card) 100%);
+}
+
+.globe-sphere {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: relative;
+  background: radial-gradient(circle at 30% 30%,
+      rgba(99, 102, 241, 0.4) 0%,
+      rgba(139, 92, 246, 0.2) 40%,
+      rgba(6, 182, 212, 0.1) 70%,
+      transparent 100%);
+  border: 2px solid rgba(99, 102, 241, 0.4);
+  box-shadow:
+    0 0 60px rgba(99, 102, 241, 0.3),
+    inset 0 0 40px rgba(99, 102, 241, 0.1);
+  animation: globeFloat 6s ease-in-out infinite;
+  overflow: hidden;
+}
+
+@keyframes globeFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotateZ(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotateZ(2deg);
+  }
+}
+
+/* Meridian lines (vertical) */
+.globe-meridian {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1.5px solid rgba(99, 102, 241, 0.3);
+  animation: globeRotate 10s linear infinite;
+}
+
+.globe-meridian.meridian-2 {
+  transform: rotateY(60deg);
+  animation-delay: -3.33s;
+}
+
+.globe-meridian.meridian-3 {
+  transform: rotateY(120deg);
+  animation-delay: -6.66s;
+}
+
+@keyframes globeRotate {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+/* Equator lines (horizontal) */
+.globe-equator {
+  position: absolute;
+  width: 100%;
+  height: 60%;
+  top: 20%;
+  left: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(139, 92, 246, 0.25);
+  transform: rotateX(75deg);
+  animation: equatorPulse 4s ease-in-out infinite;
+}
+
+.globe-equator.equator-2 {
+  height: 80%;
+  top: 10%;
+  border-color: rgba(6, 182, 212, 0.2);
+  transform: rotateX(60deg);
+  animation-delay: -2s;
+}
+
+@keyframes equatorPulse {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    border-color: rgba(139, 92, 246, 0.25);
+  }
+
+  50% {
+    opacity: 1;
+    border-color: rgba(139, 92, 246, 0.5);
+  }
+}
+
+/* Globe highlight */
+.globe-highlight {
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  width: 30%;
+  height: 25%;
+  background: radial-gradient(ellipse,
+      rgba(255, 255, 255, 0.3) 0%,
+      transparent 70%);
+  border-radius: 50%;
+  filter: blur(5px);
+}
+
+/* Globe shadow */
+.globe-shadow {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 20px;
+  background: radial-gradient(ellipse,
+      rgba(99, 102, 241, 0.3) 0%,
+      transparent 70%);
+  border-radius: 50%;
+  animation: shadowPulse 6s ease-in-out infinite;
+}
+
+@keyframes shadowPulse {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translateX(-50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .globe-sphere {
+    width: 150px;
+    height: 150px;
+  }
+
+  .globe-shadow {
+    width: 90px;
+    height: 15px;
+  }
+}
+
+/* Light mode adjustments */
+body.light-mode .globe-sphere {
+  background: radial-gradient(circle at 30% 30%,
+      rgba(99, 102, 241, 0.3) 0%,
+      rgba(139, 92, 246, 0.15) 40%,
+      rgba(6, 182, 212, 0.08) 70%,
+      transparent 100%);
+  box-shadow:
+    0 0 40px rgba(99, 102, 241, 0.2),
+    inset 0 0 30px rgba(99, 102, 241, 0.08);
+}
+
+body.light-mode .globe-meridian {
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+body.light-mode .globe-equator {
+  border-color: rgba(139, 92, 246, 0.2);
+}
+
+body.light-mode .globe-shadow {
+  background: radial-gradient(ellipse,
+      rgba(99, 102, 241, 0.2) 0%,
+      transparent 70%);
+}
