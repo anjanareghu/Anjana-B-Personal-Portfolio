@@ -142,6 +142,4 @@ The generated pages are checked in, so GitHub Pages needs no custom build. All l
 
 Compositions are inspired by the [Riotters drone demo](https://drone.riotters.com/) and the supplied character image and recordings. The implementation, illustrations, and shader are custom.
 
-Further reference reviews: [Rinu Thomas K](https://rinu-portfolio.lovable.app/) for visible academic/research evidence, [Ebin Reji](https://www.ebinreji.online/) for project presentation, and [Ananthakrishnan S](https://ananthakrishnans.me/) for community experience and contact discoverability. Their personal content and assets are not used in this portfolio.
-
 No license has been selected. Add a license file if you want to specify reuse terms.
